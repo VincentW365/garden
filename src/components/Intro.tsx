@@ -51,7 +51,7 @@ function Petals() {
   );
 }
 
-function Seal({ config, broken }: { config: SealConfig; broken: boolean }) {
+export function Seal({ config, broken }: { config: SealConfig; broken: boolean }) {
   return (
     <div className={`seal-screen${broken ? " is-broken" : ""}`} role="dialog" aria-live="polite">
       <Petals />

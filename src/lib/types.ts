@@ -91,6 +91,17 @@ export interface GardenConfig {
     lines: string[];
     touchPrompt: string;
   };
+  /** The single-page apology letter shown after the seal breaks. */
+  apology: {
+    eyebrow: string;
+    title: string;
+    greeting: string;
+    /** Stanzas separated by blank lines; single line breaks are kept. */
+    body: string;
+    /** Large closing lines, shown one after another. */
+    closing: string[];
+    signOff: string;
+  };
   flowers: FlowerMessage[];
   secretFlower: SecretFlower;
   bench: {

@@ -1,6 +1,6 @@
-import GardenExperience from "@/components/GardenExperience";
+import ApologyExperience from "@/components/ApologyExperience";
 import { gardenConfig } from "../../garden.config";
 
 export default function Page() {
-  return <GardenExperience config={gardenConfig} />;
+  return <ApologyExperience config={gardenConfig} />;
 }

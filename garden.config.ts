@@ -67,7 +67,91 @@ export const gardenConfig: GardenConfig = {
   },
 
   // ------------------------------------------------------------------
-  // The apology, one flower at a time.
+  // THE APOLOGY — the page she reads after breaking the seal.
+  // ------------------------------------------------------------------
+  apology: {
+    eyebrow: "For your eyes only",
+    title: "I'm sorry",
+    greeting: "{nickname},",
+    body: `Somehow, through every passing moment,
+You're the only thing on my mind.
+And maybe that's what hurts the most,
+The part I struggle to understand,
+How I was still dreaming of forever,
+While you were learning to let go of my hand.
+
+How the thought of someone else
+Could find a place inside your day,
+When even in our darkest moments,
+My heart never looked another way.
+
+I know we weren't together,
+And I know that I was wrong.
+I crossed a line I never should have,
+And I'm sorry for the hurt I caused.
+
+You had every right to walk away,
+Every right to try to heal,
+And I would never take that from you,
+No matter how much pain I feel.
+
+But if you could have lived inside my mind,
+For even just a moment or two,
+You'd know that through the silence,
+Every road still led to you.
+
+When we weren't speaking,
+You were still the voice I longed to hear.
+When the world kept moving forward,
+And everyone went on with their lives,
+I was still somewhere in our memories,
+
+And maybe love isn't measured
+By who can move on or who remains,
+Maybe two hearts can love each other
+And still respond differently to pain.
+
+I don't want to make you feel guilty
+For the choices you were free to make,
+I'm just trying to explain the feeling
+Of a heart that quietly aches.
+
+You're the name my heart knows by itself,
+And when I picture love and happiness,
+I don't picture anybody else.
+
+And I know love is more than feelings,
+More than poetry, promises, or tears.
+It's learning how to love you safely,
+And showing change.
+
+I can't undo the hurt I've caused,
+Or ask you to forget what you've been through,
+But I can take responsibility
+And become someone better, too.
+
+So if sometimes I seem a little quiet,
+If there's sadness behind my smile,
+It's not because I want to blame you,
+It's just that I am learning
+That the heart I hold so dear
+Can choose a life beyond my own,
+And that truth awakens fear.
+
+Not because you belong to me,
+Not because you owe me forever,
+But because there's something about your light
+That makes my world feel better.`,
+    closing: [
+      "If you are seeing this,",
+      "I don't want to fight anymore.",
+      "I just want you here with me.",
+    ],
+    signOff: "{myName}",
+  },
+
+  // ------------------------------------------------------------------
+  // (Unused by the letter page — the old garden's flowers.)
   // ------------------------------------------------------------------
   flowers: [
     {
