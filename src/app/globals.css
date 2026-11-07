@@ -1311,3 +1311,266 @@ button {
     transition: opacity 1s ease;
   }
 }
+
+/* ------------------------------------------------------------------
+   Apology seal (opening screen)
+   ------------------------------------------------------------------ */
+:root {
+  --font-script-stack: var(--font-script), "Pinyon Script", "Snell Roundhand", cursive;
+  --wax-1: #8e1b2e;
+  --wax-2: #5c0d1c;
+  --wax-3: #b8344a;
+}
+.seal-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  text-align: center;
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 70% at 50% 38%, rgba(140, 40, 70, 0.28), transparent 60%),
+    radial-gradient(80% 60% at 50% 110%, rgba(216, 179, 106, 0.14), transparent 70%),
+    linear-gradient(180deg, rgba(5, 7, 15, 0.92), rgba(11, 15, 31, 0.88));
+  animation: fade-in 1.6s ease both;
+  transition: opacity 1.6s ease 0.6s;
+}
+.seal-screen.is-broken {
+  opacity: 0;
+}
+.seal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  max-width: 34rem;
+}
+.seal-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 18px;
+  opacity: 0;
+  animation: seq-in 1.4s var(--ease-out) 0.6s forwards;
+}
+.seal-headline {
+  font-family: var(--font-script-stack);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 9.4vw, 5.6rem);
+  line-height: 1.15;
+  margin: 0;
+  max-width: 100%;
+  white-space: pre-line;
+  padding: 0 0.15em 0.1em;
+  color: transparent;
+  background: linear-gradient(100deg, #f6e7c9 0%, #e6c887 30%, #fff4dd 50%, #d8b36a 70%, #f3e9d8 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 0 22px rgba(230, 200, 135, 0.28));
+  text-wrap: balance;
+  opacity: 0;
+  animation:
+    seq-in 2s var(--ease-out) 1.2s forwards,
+    shimmer 7s ease-in-out 3s infinite;
+}
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 0; }
+  50% { background-position: 100% 0; }
+}
+.seal-rule {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 22px 0 18px;
+  color: var(--rose-300);
+  opacity: 0;
+  animation: fade-in 1.4s ease 2.4s forwards;
+}
+.seal-rule span {
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(216, 179, 106, 0.7), transparent);
+}
+.seal-rule i {
+  font-style: normal;
+  font-size: 1.1rem;
+}
+.seal-to {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.5rem, 5.6vw, 2rem);
+  color: var(--cream);
+  margin: 0;
+  opacity: 0;
+  animation: seq-in 1.4s var(--ease-out) 2.8s forwards;
+}
+.seal-from {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--cream-70);
+  margin: 6px 0 0;
+  opacity: 0;
+  animation: seq-in 1.4s var(--ease-out) 3.2s forwards;
+}
+
+/* wax seal */
+.wax {
+  position: relative;
+  width: 104px;
+  height: 104px;
+  margin: 34px 0 26px;
+  opacity: 0;
+  animation: wax-drop 1.4s cubic-bezier(0.3, 1.4, 0.5, 1) 3.7s forwards;
+}
+@keyframes wax-drop {
+  from { opacity: 0; transform: scale(1.5) rotate(-12deg); }
+  to { opacity: 1; transform: scale(1) rotate(0); }
+}
+.wax::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.55),
+    0 0 40px rgba(201, 123, 138, 0.3);
+  transition: opacity 0.8s ease;
+}
+.is-broken .wax::before { opacity: 0; }
+.wax-half {
+  position: absolute;
+  inset: 0;
+  transition:
+    transform 1.3s var(--ease-out),
+    opacity 1.3s ease 0.2s;
+}
+.wax-left { clip-path: polygon(0 0, 54% 0, 44% 30%, 56% 52%, 42% 76%, 52% 100%, 0 100%); }
+.wax-right { clip-path: polygon(54% 0, 100% 0, 100% 100%, 52% 100%, 42% 76%, 56% 52%, 44% 30%); }
+.wax-disc {
+  position: absolute;
+  inset: 0;
+  border-radius: 46% 54% 50% 50% / 52% 48% 52% 48%;
+  background:
+    radial-gradient(circle at 34% 28%, var(--wax-3), transparent 42%),
+    radial-gradient(circle at 50% 50%, var(--wax-1) 0 55%, var(--wax-2) 100%);
+  box-shadow:
+    inset 0 0 0 7px rgba(92, 13, 28, 0.55),
+    inset 0 0 0 9px rgba(216, 120, 130, 0.18),
+    inset -6px -8px 14px rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wax-disc span {
+  font-family: var(--font-script-stack);
+  font-size: 3.1rem;
+  line-height: 1;
+  color: #e7a3ad;
+  text-shadow:
+    -1px -1px 0 rgba(0, 0, 0, 0.45),
+    1px 1px 0 rgba(255, 200, 205, 0.25);
+  transform: translateY(4px);
+}
+.wax-glow {
+  position: absolute;
+  inset: -30px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(230, 200, 135, 0.55), transparent 65%);
+  opacity: 0;
+  pointer-events: none;
+}
+.is-broken .wax-left { transform: translate(-46px, 28px) rotate(-24deg); opacity: 0; }
+.is-broken .wax-right { transform: translate(46px, 34px) rotate(22deg); opacity: 0; }
+.is-broken .wax-glow { animation: wax-burst 1.4s ease-out forwards; }
+@keyframes wax-burst {
+  0% { opacity: 0; transform: scale(0.4); }
+  30% { opacity: 1; }
+  100% { opacity: 0; transform: scale(2.4); }
+}
+.seal-prompt {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--lavender-300);
+  margin: 0;
+  opacity: 0;
+  animation:
+    fade-in 1.2s ease 5s forwards,
+    pulse-soft 2.8s ease-in-out 6.2s infinite;
+}
+.is-broken .seal-content > :not(.wax) {
+  transition: opacity 0.8s ease;
+  opacity: 0 !important;
+  animation: none;
+}
+
+/* falling petals */
+.petals {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.petal-fall {
+  position: absolute;
+  top: -40px;
+  left: var(--x);
+  width: 14px;
+  height: 18px;
+  border-radius: 80% 0 80% 0;
+  background: linear-gradient(135deg, #f2c1c8, #c97b8a 70%, #8e3a50);
+  opacity: 0.75;
+  filter: drop-shadow(0 0 6px rgba(217, 161, 168, 0.35));
+  transform: scale(var(--s));
+  animation: petal-fall var(--d) linear var(--delay) infinite;
+}
+.petal-fall:nth-child(3n) {
+  background: linear-gradient(135deg, #fff1e0, #e6c887 75%);
+  opacity: 0.5;
+}
+@keyframes petal-fall {
+  0% { transform: translate(0, 0) rotate(0) scale(var(--s)); }
+  50% { transform: translate(calc(var(--drift) * -0.6), 55vh) rotate(calc(var(--spin) * 0.5)) scale(var(--s)); }
+  100% { transform: translate(var(--drift), 110vh) rotate(var(--spin)) scale(var(--s)); }
+}
+
+/* script accents in the apology itself */
+.card-title {
+  font-family: var(--font-script-stack);
+  font-size: clamp(1.9rem, 7vw, 2.4rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--gold-soft);
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+.final-signoff {
+  font-family: var(--font-script-stack);
+  font-style: normal;
+  font-size: 2.4rem;
+  color: var(--gold-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .petals { display: none; }
+  .seal-headline,
+  .seal-eyebrow,
+  .seal-rule,
+  .seal-to,
+  .seal-from,
+  .wax,
+  .seal-prompt {
+    animation: fade-in 0.6s ease forwards !important;
+  }
+}

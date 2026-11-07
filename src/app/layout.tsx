@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Cormorant_Garamond, Manrope, Pinyon_Script } from "next/font/google";
 import "./globals.css";
 import { gardenConfig } from "../../garden.config";
 import { fill } from "@/lib/text";
@@ -12,6 +12,13 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
+const pinyon = Pinyon_Script({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-script",
+  display: "swap",
+});
+
 const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope",
@@ -20,7 +27,7 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   title: fill(gardenConfig.siteTitle, gardenConfig),
-  description: "A garden that only exists for you.",
+  description: "An apology has been issued.",
   robots: { index: false, follow: false },
 };
 
@@ -33,7 +40,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${manrope.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${manrope.variable} ${pinyon.variable}`}>
       <body>{children}</body>
     </html>
   );

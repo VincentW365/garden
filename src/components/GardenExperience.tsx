@@ -287,7 +287,17 @@ export default function GardenExperience({ config }: { config: GardenConfig }) {
         {introMounted && (
           <Intro
             ref={introRef}
-            lines={config.intro.lines}
+            seal={
+              config.intro.seal && {
+                eyebrow: fill(config.intro.seal.eyebrow, config),
+                headline: fill(config.intro.seal.headline, config),
+                to: fill(config.intro.seal.to, config),
+                from: fill(config.intro.seal.from, config),
+                monogram: fill(config.intro.seal.monogram, config),
+                prompt: fill(config.intro.seal.prompt, config),
+              }
+            }
+            lines={config.intro.lines.map((l) => fill(l, config))}
             touchPrompt={config.intro.touchPrompt}
             leaving={phase === "garden"}
             onReady={() => setIntroReady(true)}
@@ -310,7 +320,7 @@ export default function GardenExperience({ config }: { config: GardenConfig }) {
                   setOverlay({ kind: "final" });
                 }}
               >
-                {config.finalMessage.prompt}
+                {fill(config.finalMessage.prompt, config)}
               </button>
             ) : showGrowControls ? (
               <>

@@ -79,6 +79,15 @@ export interface GardenConfig {
     label: string;
   };
   intro: {
+    /** Optional sealed-envelope opening shown before the intro lines. Supports name tokens. */
+    seal?: {
+      eyebrow: string;
+      headline: string;
+      to: string;
+      from: string;
+      monogram: string;
+      prompt: string;
+    };
     lines: string[];
     touchPrompt: string;
   };
