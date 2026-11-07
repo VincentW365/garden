@@ -61,7 +61,7 @@ export default function ApologyExperience({ config }: { config: GardenConfig }) 
         <main className={`letter-scroll${sealState === "gone" ? " is-open" : ""}`}>
           <article className="apology">
             <header className="apology-head">
-              <p className="seal-eyebrow">{f(apology.eyebrow)}</p>
+              {apology.eyebrow && <p className="seal-eyebrow">{f(apology.eyebrow)}</p>}
               <h1 className="apology-title">{f(apology.title)}</h1>
               <div className="seal-rule" aria-hidden="true">
                 <span />

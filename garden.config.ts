@@ -38,7 +38,7 @@ export const gardenConfig: GardenConfig = {
   importantDate: "05 . 01 . 2001",
   relationshipStartDate: "",
 
-  siteTitle: "An apology for {nickname}",
+  siteTitle: "For {nickname}",
 
   audio: {
     src: "",
@@ -50,12 +50,13 @@ export const gardenConfig: GardenConfig = {
   // ------------------------------------------------------------------
   intro: {
     seal: {
-      eyebrow: "Delivered by hand",
-      headline: "An apology\nhas been issued",
-      to: "to {nickname}",
-      from: "from {myName}, with all of his heart",
+      // Leave any of these "" to hide it. Right now only the wax seal shows.
+      eyebrow: "",
+      headline: "",
+      to: "",
+      from: "",
       monogram: "B",
-      prompt: "Touch to break the seal.",
+      prompt: "",
     },
     lines: [
       "{nickname}, before anything else…",
@@ -70,7 +71,7 @@ export const gardenConfig: GardenConfig = {
   // THE APOLOGY — the page she reads after breaking the seal.
   // ------------------------------------------------------------------
   apology: {
-    eyebrow: "For your eyes only",
+    eyebrow: "",
     title: "I'm sorry",
     greeting: "{nickname},",
     body: `Somehow, through every passing moment,

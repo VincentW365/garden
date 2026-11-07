@@ -27,7 +27,7 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   title: fill(gardenConfig.siteTitle, gardenConfig),
-  description: "An apology has been issued.",
+  description: "For Birch.",
   robots: { index: false, follow: false },
 };
 

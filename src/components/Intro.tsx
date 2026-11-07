@@ -53,18 +53,25 @@ function Petals() {
 
 export function Seal({ config, broken }: { config: SealConfig; broken: boolean }) {
   return (
-    <div className={`seal-screen${broken ? " is-broken" : ""}`} role="dialog" aria-live="polite">
+    <div
+      className={`seal-screen${broken ? " is-broken" : ""}${config.headline ? "" : " seal-only"}`}
+      role="dialog"
+      aria-label="A sealed letter. Tap to open."
+      aria-live="polite"
+    >
       <Petals />
       <div className="seal-content">
-        <p className="seal-eyebrow">{config.eyebrow}</p>
-        <h1 className="seal-headline">{config.headline}</h1>
-        <div className="seal-rule" aria-hidden="true">
-          <span />
-          <i>&#10087;</i>
-          <span />
-        </div>
-        <p className="seal-to">{config.to}</p>
-        <p className="seal-from">{config.from}</p>
+        {config.eyebrow && <p className="seal-eyebrow">{config.eyebrow}</p>}
+        {config.headline && <h1 className="seal-headline">{config.headline}</h1>}
+        {config.headline && (
+          <div className="seal-rule" aria-hidden="true">
+            <span />
+            <i>&#10087;</i>
+            <span />
+          </div>
+        )}
+        {config.to && <p className="seal-to">{config.to}</p>}
+        {config.from && <p className="seal-from">{config.from}</p>}
 
         <div className="wax" aria-hidden="true">
           <div className="wax-half wax-left">
@@ -80,7 +87,7 @@ export function Seal({ config, broken }: { config: SealConfig; broken: boolean }
           <div className="wax-glow" />
         </div>
 
-        <p className="seal-prompt">{config.prompt}</p>
+        {config.prompt && <p className="seal-prompt">{config.prompt}</p>}
       </div>
     </div>
   );

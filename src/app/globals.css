@@ -1711,3 +1711,37 @@ button {
     animation: fade-in 0.6s ease forwards !important;
   }
 }
+
+/* seal with no wording: just the wax, larger, breathing gently */
+.seal-only .wax {
+  width: 150px;
+  height: 150px;
+  margin: 0;
+  animation: wax-drop 1.6s cubic-bezier(0.3, 1.4, 0.5, 1) 0.9s forwards;
+}
+.seal-only .wax-disc span {
+  font-size: 4.4rem;
+}
+.seal-only .wax-half {
+  animation: wax-breathe 3.4s ease-in-out 2.6s infinite;
+}
+.seal-only.is-broken .wax-half {
+  animation: none;
+}
+.seal-only .wax::before {
+  animation: wax-halo 3.4s ease-in-out 2.6s infinite;
+}
+@keyframes wax-breathe {
+  0%, 100% { scale: 1; }
+  50% { scale: 1.045; }
+}
+@keyframes wax-halo {
+  0%, 100% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55), 0 0 40px rgba(201, 123, 138, 0.3); }
+  50% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55), 0 0 70px 10px rgba(230, 160, 170, 0.45); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .seal-only .wax-half,
+  .seal-only .wax::before {
+    animation: none;
+  }
+}
