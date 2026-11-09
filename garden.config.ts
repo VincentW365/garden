@@ -143,12 +143,9 @@ Not because you belong to me,
 Not because you owe me forever,
 But because there's something about your light
 That makes my world feel better.`,
-    closing: [
-      "If you are seeing this,",
-      "I don't want to fight anymore.",
-      "I just want you here with me.",
-    ],
-    signOff: "{myName}",
+    // Leave empty to end on the poem alone.
+    closing: [],
+    signOff: "",
   },
 
   // ------------------------------------------------------------------

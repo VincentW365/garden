@@ -80,17 +80,25 @@ export default function ApologyExperience({ config }: { config: GardenConfig }) 
               </Reveal>
             ))}
 
-            <Reveal className="apology-closing">
-              <div className="apology-flourish" aria-hidden="true">
-                &#10087;
-              </div>
-              {apology.closing.map((line, i) => (
-                <p key={i} className="apology-close-line" style={{ animationDelay: `${0.5 + i * 1.1}s` }}>
-                  {f(line)}
-                </p>
-              ))}
-              <p className="apology-signoff">{f(apology.signOff)}</p>
-            </Reveal>
+            {apology.closing.length > 0 || apology.signOff ? (
+              <Reveal className="apology-closing">
+                <div className="apology-flourish" aria-hidden="true">
+                  &#10087;
+                </div>
+                {apology.closing.map((line, i) => (
+                  <p key={i} className="apology-close-line" style={{ animationDelay: `${0.5 + i * 1.1}s` }}>
+                    {f(line)}
+                  </p>
+                ))}
+                {apology.signOff && <p className="apology-signoff">{f(apology.signOff)}</p>}
+              </Reveal>
+            ) : (
+              <Reveal>
+                <div className="apology-flourish apology-end" aria-hidden="true">
+                  &#10087;
+                </div>
+              </Reveal>
+            )}
           </article>
         </main>
       )}

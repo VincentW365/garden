@@ -1745,3 +1745,7 @@ button {
     animation: none;
   }
 }
+
+.apology-end {
+  margin: 2vh 0 0;
+}
