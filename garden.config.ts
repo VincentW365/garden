@@ -144,7 +144,11 @@ Not because you owe me forever,
 But because there's something about your light
 That makes my world feel better.`,
     // Leave empty to end on the poem alone.
-    closing: [],
+    closing: [
+      "You don’t have to be doing all this blocking.",
+      "Just tell me what’s going on.",
+      "Say something, God.",
+    ],
     signOff: "",
   },
 
